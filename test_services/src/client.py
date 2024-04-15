@@ -11,8 +11,8 @@ rospy.wait_for_service('/move_linear_y')
 move_linear = rospy.ServiceProxy('/move_linear_y', srvmess)
 # Create an object of type MoveInSquareRequest
 move_linear_obj = srvmessRequest()
-move_linear_obj.duration = 5
-move_linear_obj.direction = "neg"
+move_linear_obj.duration = 10
+move_linear_obj.direction = "poz"
 
 # Send through the connection the name of the request
 result = move_linear(move_linear_obj)

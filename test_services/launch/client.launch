@@ -1,4 +1,0 @@
-<launch>
-    <node pkg="test_services" type="client.py" name="service_client"  output="screen">
-    </node>
-</launch>

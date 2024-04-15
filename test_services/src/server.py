@@ -5,21 +5,25 @@ from geometry_msgs.msg import Twist
 
 def my_callback(request):
     print("My_callback has been called")
-    start_time = rospy.Time.now()
     turn = Twist()
-    #rate = rospy.Rate(10)  # 10 Hz
-
-    while (rospy.Time.now().to_sec() - start_time.to_sec() < request.duration):
+    
+    i = 0
+    r = rospy.Rate(1)
+    start_time = rospy.get_time()
+    while start_time + request.duration > rospy.get_time():
+        print('still running after ' + str(i) + ' seconds')
         if request.direction == "poz":
-            turn.linear.y = 0.1
+            turn.linear.y = 0.5
+            print("+")
         elif request.direction == "neg":
-            turn.linear.y = -0.1
+            turn.linear.y = -0.5
+            print("-")
+        else: print("problem")
         pub.publish(turn)
-        #print('*')
-        #rate.sleep()
+        i = i + 1
+        r.sleep()
 
-    turn.linear.x = 0.0
-    turn.angular.z = 0.0
+    turn.linear.y = 0.0
     pub.publish(turn)
 
     response = srvmessResponse()
