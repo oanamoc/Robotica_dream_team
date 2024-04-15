@@ -1,0 +1,4 @@
+int32 duration # The time in seconds 
+string direction
+---
+bool success # Did it achieve it?
