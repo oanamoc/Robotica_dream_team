@@ -1,0 +1,8 @@
+#goal
+int32 nr_sec
+---
+#result
+string num_publicate
+---
+#feedback
+int32 nr_curent

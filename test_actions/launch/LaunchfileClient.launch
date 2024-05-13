@@ -1,0 +1,3 @@
+<launch>
+<node pkg="test_actions" type="client.py" name="number_sequence_client" output="screen"/>
+</launch>
